@@ -440,7 +440,8 @@ class DataciteExportPlugin extends DOIPubIdExportPlugin {
 
         if ($this->isTestMode($context)) {
             // Change server domain for testing.
-            $url = PKPString::regexp_replace('#://[^\s]+/index.php#', '://example.com/index.php', $url);
+            $url = preg_replace('#://[^\s]+/index.php#', '://example.com/index.php', $url);
+            //$url = PKPString::regexp_replace('#://[^\s]+/index.php#', '://example.com/index.php', $url);
         }
         return $url;
     }

@@ -14,53 +14,42 @@ msgstr ""
 msgid "plugins.importexport.datacite.description"
 msgstr "Deposite submissions in OMP's datacite XML format."
 
-msgid "plugins.importexport.datacite.deposited"
-msgstr "Deposited"
-
-msgid "plugins.importexport.datacite.depositedSubmissions"
-msgstr "Deposited submissions"
-
-msgid "plugins.importexport.datacite.deposit"
-msgstr "Deposit"
-
 msgid "plugins.importexport.datacite.displayName"
 msgstr "Datacite XML Plugin"
 
-msgid "plugins.importexport.datacite.error"
-msgstr "Error"
-
-msgid "plugins.importexport.datacite.queued"
-msgstr "To Deposit"
-
-msgid "plugins.importexport.datacite.redeposit"
-msgstr "Deposit Again"
-
-msgid "plugins.importexport.datacite.submittedSubmissions"
-msgstr "Select monographs to export"
-
-msgid "plugins.importexport.datacite.results"
-msgstr "Results"
-
 msgid "plugins.importexport.datacite.settings.description"
-msgstr "Description"
+msgstr "Please configure the DataCite export plugin before using it for the first time."
 
 msgid "plugins.importexport.datacite.intro"
-msgstr "This plugin registers DOIs for monographs, chapters, publication formats and files for DOI provider <a href=\"https://datacite.org\">Datacite.org</a>."
+msgstr ""
+       "\n"
+       "\t\tIf you want to register DOIs with DataCite, please contact the Managing\n"
+       "\t\tAgent via the <a href=\"https://datacite.org/contact.html\" target=\""
+       "_blank\">DataCite\n"
+       "\t\thomepage</a>, who will refer you to your local DataCite Member. Once you "
+       "have\n"
+       "\t\testablished a relationship with the Member organisation, you will be "
+       "provided\n"
+       "\t\twith access to the DataCite service for minting persistent identifiers "
+       "(DOIs)\n"
+       "\t\tand registering associated metadata. If you do not have your own "
+       "username and\n"
+       "\t\tpassword you'll still be able to export into the DataCite XML format but "
+       "you\n"
+       "\t\tcannot register your DOIs with DataCite from within OMP.\n"
+       "\t\tPlease note that the password will be saved as plain text, i.e. not "
+       "encrypted, due\n"
+       "\t\tto the DataCite registration service requirements.\n"
+       "\t"
 
 msgid "plugins.importexport.datacite.settings.label"
-msgstr "Settings"
-
-msgid "plugins.importexport.datacite.settings.form.testUrl"
-msgstr "Test Url"
+msgstr "DataCite Settings"
 
 msgid "plugins.importexport.datacite.settings.form.password"
 msgstr "Password"
 
 msgid "plugins.importexport.datacite.settings.form.password.description"
-msgstr " "
-
-msgid "plugins.importexport.datacite.settings.form.url"
-msgstr "Datacite URL"
+msgstr "Please note that the password will be saved as plain text, i.e. not encrypted."
 
 msgid "plugins.importexport.datacite.settings.form.username"
 msgstr "Username (symbol)"
@@ -74,83 +63,11 @@ msgstr "OMP will deposit DOIs automatically to DataCite. Please note that this m
 msgid "plugins.importexport.datacite.settings.form.testMode.description"
 msgstr "Use the DataCite test prefix for DOI registration. Please do not forget to remove this option for the production."
 
-msgid "plugins.importexport.datacite.settings.form.testDescription"
-msgstr "Test Server settings "
-
-msgid "plugins.importexport.datacite.settings.form.testIntro"
-msgstr "You can set the datacited test server here e.g. https://labs.da-ra.de/dara/study/importXML?registration=true "
-
-msgid "plugins.importexport.datacite.settings.form.testPrefix"
-msgstr "Test Prefix"
-
-msgid "plugins.importexport.datacite.settings.form.testRegistry"
-msgstr " Test registry"
-
-msgid "plugins.importexport.datacite.settings.form.testUrl"
-msgstr "Test URL"
-
 msgid "plugins.importexport.datacite.senderTask.name"
 msgstr "DataCite automatic registration task"
 
-msgid "plugins.importexport.datacite.tab.monographs"
-msgstr "Monographs / Chapters"
-
-msgid "plugins.importexport.datacite.status.registered"
-msgstr "Deposited"
-
-msgid "plugins.importexport.datacite.status.markedregistered"
-msgstr "Marked registered"
-
-msgid "plugins.importexport.datacite.status.todeposit"
-msgstr "Not Deposited"
-
-msgid "plugins.importexport.datacite.status.any"
-msgstr "Any Status"
-
-msgid "plugins.importexport.datacite.table.status"
-msgstr "Status"
-
-msgid "plugins.importexport.datacite.table.doi"
-msgstr "DOI"
-
-msgid "plugins.importexport.datacite.table.published"
-msgstr "Published "
-
-msgid "plugins.importexport.datacite.table.authortitle"
-msgstr "Author; Title "
-
-msgid "plugins.importexport.datacite.table.id"
-msgstr "ID"
-
-msgid "plugins.importexport.datacite.table.select"
-msgstr "Select"
-
-msgid "plugins.importexport.datacite.table.items"
-msgstr "items"
-
-msgid "plugins.importexport.datacite.table.of"
-msgstr "of"
-
-msgid "plugins.importexport.datacite.button.register"
-msgstr "Register"
-
-msgid "plugins.importexport.datacite.button.markRegistered"
-msgstr "Mark registered"
-
-msgid "plugins.importexport.datacite.error.mdsError"
-msgstr "Registration was not successful! The DOI registration server returned an error: '{$param}'."
-
-msgid "plugins.importexport.datacite.search"
-msgstr "Search"
-
-msgid "plugins.importexport.datacite.search.authors"
-msgstr "Authors"
-
-msgid "plugins.importexport.datacite.search.title"
-msgstr "Title"
-
 msgid "plugins.generic.datacite.registrationAgency.name"
-msgstr "Datacite"
+msgstr "DataCite"
 
 msgid "plugins.importexport.datacite.settings.form.testUsername"
 msgstr "Test Username"
@@ -172,9 +89,3 @@ msgstr "Datacite Manager Plugin"
 
 msgid "plugins.generic.datacite.description"
 msgstr "Handles depositing and exporting Datacite metadata"
-
-msgid "plugins.importexport.datacite.settings.form.onlyWithLandingPage.label"
-msgstr "Chapters without own page"
-
-msgid "plugins.importexport.datacite.settings.form.onlyWithLandingPage.description"
-msgstr "Deposit only chapters with own page"

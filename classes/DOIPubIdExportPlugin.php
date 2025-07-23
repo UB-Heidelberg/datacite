@@ -228,6 +228,6 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
 
     public function createTestDOI(string $doi, string $testPrefix) : array|string|null
     {
-        return PKPString::regexp_replace('#^[^/]+/#', $testPrefix . '/', $doi);
+        return preg_replace('#^[^/]+/#' . 'u', $testPrefix . '/', $doi);
     }
 }

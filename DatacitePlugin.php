@@ -116,18 +116,10 @@ class DatacitePlugin extends GenericPlugin implements IDoiRegistrationAgency
             if (in_array(Repo::doi()::TYPE_CHAPTER, $context->getEnabledDoiTypes())) {
                 $chapterDAO = new ChapterDAO();
                 $chapters = $chapterDAO->getByPublicationId($currentPublicationId)->toAssociativeArray();
-                $onlyWithLandingPage = $this->getSetting($context->getId(), DataciteSettings::KEY_ONLY_WITH_LANDINGPAGE);
                 /** @var Chapter $chapter */
                 foreach ($chapters as $chapter) {
                     if ($chapter->getDoi()) {
-                        if ($onlyWithLandingPage) { //TODO: Remove this control structure, if omp core only assigns DOIs to chapters with own landing page.
-                            if ($chapter->isPageEnabled() === 1) {
-                                $items[] = $chapter;
-                            }
-                        } else {
                             $items[] = $chapter;
-                        }
-
                     }
                 }
             }
@@ -191,18 +183,10 @@ class DatacitePlugin extends GenericPlugin implements IDoiRegistrationAgency
             if (in_array(Repo::doi()::TYPE_CHAPTER, $context->getEnabledDoiTypes())) {
                 $chapterDAO = new ChapterDAO();
                 $chapters = $chapterDAO->getByPublicationId($currentPublicationId)->toAssociativeArray();
-                $onlyWithLandingPage = $this->getSetting($context->getId(), DataciteSettings::KEY_ONLY_WITH_LANDINGPAGE);
                 /** @var Chapter $chapter */
                 foreach ($chapters as $chapter) {
                     if ($chapter->getDoi()) {
-                        if ($onlyWithLandingPage) { //TODO: Remove this control structure, if omp core only assigns DOIs to chapters with own landing page.
-                            if ($chapter->isPageEnabled() === 1) {
-                                $items[] = $chapter;
-                            }
-                        } else {
-                            $items[] = $chapter;
-                        }
-
+                        $items[] = $chapter;
                     }
                 }
             }
@@ -325,12 +309,14 @@ class DatacitePlugin extends GenericPlugin implements IDoiRegistrationAgency
             $pluginCategory = 'importexport';
             $pluginPathName = 'DataciteExportPlugin';
             $this->_exportPlugin = PluginRegistry::getPlugin($pluginCategory, $pluginPathName);
+
             // If being run from CLI, there is no context, so plugin initialization would not have been fired
-            if ($this->_exportPlugin === null /**&& !isset($_SERVER['SERVER_NAME'])*/) {
+            if ($this->_exportPlugin === null /*&& !isset($_SERVER['SERVER_NAME'])*/) {
                 $this->_pluginInitialization();
                 $this->_exportPlugin = PluginRegistry::getPlugin($pluginCategory, $pluginPathName);
             }
         }
+
         return $this->_exportPlugin;
     }
 

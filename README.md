@@ -9,18 +9,20 @@ Current Schema version is [4.4](https://support.datacite.org/docs/datacite-metad
 ```bash
 OMP=/path/to/OMP_INSTALLATION
 cd $OMP/plugins/generic
-git clone https://github.com/withanage/datacite
+git clone https://github.com/UB-Heidelberg/datacite
+git checkout stable-3_5_0
+
 
 cd $OMP
 php lib/pkp/tools/installPluginVersion.php plugins/generic/datacite/version.xml
 ```
 
 ####  Setup Datacite
-* Navigate to {OMP_SERVER}/index.php/{MY_PRESS}/management/distribution#dois/doisRegistration
-* Choose Registration Agency "Datacite"
+* Navigate to {OMP_SERVER}/index.php/{MY_PRESS}/management/settings/distribution#doisRegistration
+* Choose Registration Agency "DataCite"
 * Username  : Username
 * Password: Password
-* Only for testing: Use the DataCite test prefix, test username and test password for DOI registration. Is test mode enabled, this plugin doesn't change any DOI status and uses the Datacite test api for registration.
+* Only for testing: Use the DataCite test prefix, test username and test password for DOI registration. Is test mode enabled, this plugin change DOI status only to submitted or error and uses the Datacite test api for registration.
 
 
 ####  Credits

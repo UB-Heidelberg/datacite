@@ -19,7 +19,6 @@ namespace APP\plugins\generic\datacite\classes;
 use APP\monograph\Chapter;
 use APP\publication\Publication;
 use APP\publicationFormat\PublicationFormat;
-use DataObject;
 use PKP\submissionFile\SubmissionFile;
 
 class PubObjectCache
@@ -33,10 +32,10 @@ class PubObjectCache
     /**
      * Add a publishing object to the cache.
      *
-     * @param DataObject $object
+     * @param Publication|Chapter|PublicationFormat|SubmissionFile $object
      * @param Publication|null $parent Only required when adding a publication format or chapter.
      */
-    public function add(DataObject $object, ?Publication $parent = null): void
+    public function add(Publication|Chapter|PublicationFormat|SubmissionFile $object, ?Publication $parent = null): void
     {
         if ($object instanceof Publication) {
             $this->_insertInternally($object, 'publication', $object->getId());
