@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+
+msgid "plugins.importexport.datacite.description"
+msgstr "Registriert Einreichungen im DataCite XML-Format."
+
+msgid "plugins.importexport.datacite.displayName"
+msgstr "Datacite XML Plugin"
+
+msgid "plugins.importexport.datacite.settings.description"
+msgstr ""
+       "Bitte konfigurieren Sie das DataCite-Plugin, bevor Sie es das erste Mal "
+       "benutzen."
+
+msgid "plugins.importexport.datacite.intro"
+msgstr ""
+       "\n"
+       "\t\tWenn Sie DOI bei DataCite registrieren möchten, kontaktieren Sie bitte "
+       "die/den\n"
+       "\t\tBevollmächtigte/n über die <a href=\"https://datacite.org/contact.html\" "
+       "target=\"_blank\">\n"
+       "\t\tDataCite-Homepage</a>, die/der Sie an Ihr lokales DataCite-Mitglied "
+       "verweisen wird.\n"
+       "\t\tNachdem Sie Kontakt zu der Mitgliedsorganisation hergestellt haben, wird "
+       "Ihnen ein\n"
+       "\t\tZugang zum DataCite-Dienst zum Ausstellen persistenter Kennungen (DOI) "
+       "und zur\n"
+       "\t\tRegistrierung zugehöriger Metadaten ermöglicht. Wenn Sie über keinen "
+       "eigenen Benutzer/innennamen und\n"
+       "\t\tkein eigenes Passwort verfügen, können Sie immerhin in das DataCite-XML-"
+       "Format exportieren, aber Sie\n"
+       "\t\tkönnen Ihre DOI nicht aus OMP heraus bei DataCite registrieren.\n"
+       "\t\tBitte beachten Sie, dass das Passwort im Klartext, d.h. unverschlüsselt, "
+       "gespeichert werden\n"
+       "\t\twird, da der DataCite-Registrierungsdienst dies erfordert.\n"
+       "\t"
+
+msgid "plugins.importexport.datacite.settings.label"
+msgstr "DataCite-Einstellungen"
+
+msgid "plugins.importexport.datacite.settings.form.password"
+msgstr "Passwort"
+
+msgid "plugins.importexport.datacite.settings.form.password.description"
+msgstr "Bitte beachten Sie, dass das Passwort im Klartext, d.h. unverschlüsselt, gespeichert wird."
+
+msgid "plugins.importexport.datacite.settings.form.username"
+msgstr "Benutzer/innenname (symbol)"
+
+msgid "plugins.importexport.datacite.settings.form.usernameRequired"
+msgstr "Bitte geben Sie den Benutzer/innennamen (symbol) ein, den Sie von DataCite "
+        "erhalten haben. Der Benutzer/innenname darf keinen Doppelpunkt enthalten."
+
+msgid "plugins.importexport.datacite.settings.form.automaticRegistration.description"
+msgstr "OMP wird die zugewiesenen DOI automatisch an DataCite liefern. Bitte "
+       "beachten Sie, dass dieser Prozess eine gewisse Zeit nach der "
+       "Veröffentlichung dauern kann (z.B. abhängig von Ihrer Cronjob-"
+       "Konfiguration). Sie können nach bisher unregistrierten DOI suchen."
+
+msgid "plugins.importexport.datacite.settings.form.testMode.description"
+msgstr "Den DataCite-Test-Präfix für die DOI-Registrierung benutzen. Bitte vergessen "
+       "Sie nicht, diese Option vor dem Produktivbetrieb abzuwählen."
+
+msgid "plugins.importexport.datacite.senderTask.name"
+msgstr "DataCite automatische Registrierung"
+
+msgid "plugins.generic.datacite.registrationAgency.name"
+msgstr "DataCite"
+
+msgid "plugins.importexport.datacite.settings.form.testUsername"
+msgstr "Test-Benutzer/innen-Name"
+
+msgid "plugins.importexport.datacite.settings.form.testPassword"
+msgstr "Test-Passwort"
+
+msgid "plugins.importexport.datacite.settings.form.testDOIPrefix"
+msgstr "Test-DOI-Präfix"
+
+msgid "plugins.importexport.datacite.settings.form.testDOIPrefixRequired"
+msgstr "Ein Test-DOI-Präfix ist erforderlich, wenn die Option \"Testpräfix für DOI-"
+        "Registrierung verwenden\" ausgewählt wird."
+
+msgid "plugins.importexport.datacite.settings.form.testUsernameRequired"
+msgstr "Ein Testbenutzername ist erforderlich, wenn ein Produktionsbenutzername "
+       "angegeben wird."
+
+msgid "plugins.generic.datacite.displayName"
+msgstr "DataCite Manager Plugin"
+
+msgid "plugins.generic.datacite.description"
+msgstr "Verwaltet die Ablieferung und den Export von DataCite-Metadaten"
+
+msgid "plugins.importexport.datacite.settings.form.onlyWithLandingPage.label"
+msgstr "Kapitel ohne eigene Seite"
+
+msgid "plugins.importexport.datacite.settings.form.onlyWithLandingPage.description"
+msgstr "Nur Kapitel mit eigener Seite einreichen"
