@@ -29,12 +29,15 @@ use PKP\core\PKPString;
 use PKP\filter\FilterGroup;
 use PKP\i18n\LocaleConversion;
 use PKP\plugins\importexport\native\filter\NativeExportFilter;
+use PKP\plugins\PluginRegistry;
 use PKP\submissionFile\SubmissionFile;
 
 class DataciteXmlFilter extends NativeExportFilter
 {
     // Title types
     public const DATACITE_TITLETYPE_TRANSLATED = 'TranslatedTitle';
+    public const DATACITE_TITLETYPE_SUBTITLE = 'Subtitle';
+    public const DATACITE_TITLETYPE_OTHER = 'Other';
 
     // Identifier types
     public const DATACITE_IDTYPE_DOI = 'DOI';
@@ -345,9 +348,19 @@ class DataciteXmlFilter extends NativeExportFilter
             $chapterTitles = $this->getTranslationsByPrecedence($chapterTitles, $objectLocalePrecedence);
         }
         $publicationTitles = $publication->getTitles();
+        $publicationSubTitles = $publication->getSubTitles();
+
+        // Add edition information as titleType=Other
+        $publicationEditions = [];
+        $editionLabelPlugin = PluginRegistry::getPlugin('generic', 'editionlabelplugin');
+        if ($editionLabelPlugin && $editionLabelPlugin->getEnabled()) {
+            $publicationEditions = $editionLabelPlugin->getEditions($publication);
+        }
 
         // Order titles by locale precedence.
         $publicationTitles = $this->getTranslationsByPrecedence($publicationTitles, $objectLocalePrecedence);
+        $publicationSubTitles = $this->getTranslationsByPrecedence($publicationSubTitles, $objectLocalePrecedence);
+        $publicationEditions = $this->getTranslationsByPrecedence($publicationEditions, $objectLocalePrecedence);
 
         // We expect at least one title.
         $counter = count($fileTitles) + count($publicationFormatNames) + count($chapterTitles) + count($publicationTitles);
@@ -355,6 +368,8 @@ class DataciteXmlFilter extends NativeExportFilter
         $titlesNode = $doc->createElementNS($deployment->getNamespace(), 'titles');
         // Start with the primary object locale.
         $primaryPublicationTitle = array_shift($publicationTitles);
+        $primaryPublicationSubTitle = array_shift($publicationSubTitles);
+        $primaryPublicationEdition = array_shift($publicationEditions);
         $primaryChapterTitle = array_shift($chapterTitles);
         $primaryPublicationFormatName = array_shift($publicationFormatNames);
         $primaryFileTitle = array_shift($fileTitles);
@@ -433,10 +448,48 @@ class DataciteXmlFilter extends NativeExportFilter
                     )
                 )
             );
+
             // Then let the translated titles follow.
             foreach ($publicationTitles as $locale => $title) {
                 $titlesNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'title', htmlspecialchars(PKPString::html2text($title), ENT_COMPAT, 'UTF-8')));
                 $node->setAttribute('titleType', self::DATACITE_TITLETYPE_TRANSLATED);
+            }
+
+            // Then let the subtitle follow.
+            if ($primaryPublicationSubTitle) {
+                $titlesNode->appendChild(
+                    $node = $doc->createElementNS(
+                        $deployment->getNamespace(),
+                        'title',
+                        htmlspecialchars(
+                            PKPString::html2text($primaryPublicationSubTitle),
+                            ENT_COMPAT,
+                            'UTF-8')
+                    )
+                );
+                $node->setAttribute('titleType', self::DATACITE_TITLETYPE_SUBTITLE);
+            }
+
+            // Then let the full title with edition follow.
+            if ($primaryPublicationEdition) {
+                if ($primaryPublicationSubTitle) {
+                    $titleOtherText = PKPString::concatTitleFields([$primaryPublicationTitle, $primaryPublicationSubTitle]);
+                    $titleOtherText = PKPString::concatTitleFields([$titleOtherText, $primaryPublicationEdition]);
+                } else {
+                    $titleOtherText = PKPString::concatTitleFields([$primaryPublicationTitle, $primaryPublicationEdition]);
+                }
+
+                $titlesNode->appendChild(
+                    $node = $doc->createElementNS(
+                        $deployment->getNamespace(),
+                        'title',
+                        htmlspecialchars(
+                            PKPString::html2text($titleOtherText),
+                            ENT_COMPAT,
+                            'UTF-8')
+                    )
+                );
+                $node->setAttribute('titleType', self::DATACITE_TITLETYPE_OTHER);
             }
         }
 
